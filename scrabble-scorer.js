@@ -31,14 +31,14 @@ function oldScrabbleScorer(word) {
 
 // your job is to finish writing these functions and variables that we've named //
 // don't change the names or your program won't work as expected. //
-let word = "";
+
 
 function initialPrompt() {
-   word = input.question(`Let's play some scrabble!\n\nEnter a word to score: `);
-// return oldScrabbleScorer(word);
-   return word;
+  let word = input.question(`Let's play some scrabble!\n\nEnter a word to score: `);
+   //console.log(word);
+   console.log(oldScrabbleScorer(word));
+  return word;
 } 
-// oldScrabbleScorer(word);
 
 let newPointStructure;
 
@@ -56,10 +56,9 @@ function scorerPrompt() {}
 function transform() {};
 
 function runProgram() {
-//let word = initialPrompt();
-   initialPrompt();
-   oldScrabbleScorer(word);
+ initialPrompt();
 }
+
 // Don't write any code below this line //
 // And don't change these or your program will not run as expected //
 module.exports = {
