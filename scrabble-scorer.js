@@ -101,7 +101,8 @@ function scorerPrompt(num) {
   let word = input.question(`Let's play some scrabble!\n\nEnter a word to score: `);
  
   let selectedScorer = input.question(`Which scoring algorithm would you like to use?\n\n0 - Simple: One point per character\n1 - Vowel Bonus: Vowels are worth 3 points\n2 - Scarbble: Uses scrabble point system\nEnter 0, 1, or 2: `);
-     if (selectedScorer === "0") {
+  //chnage these if statments! (nested causeing problem)   
+  if (selectedScorer === "0") {
       console.log(`Score for ${word}: ${scoringAlgorithms[0].scorerFunction(word)}`);
         if (selectedScorer === "1") {
       console.log(`Score for ${word}: ${scoringAlgorithms[1].scorerFunction(word)}`);
