@@ -32,46 +32,20 @@ function oldScrabbleScorer(word) {
 // your job is to finish writing these functions and variables that we've named //
 // don't change the names or your program won't work as expected. //
 
-//function initialPropmpt
+// Function initialPropmpt
 function initialPrompt() {
-   // prompt user for a word.
+// Prompt User For A Word.
   let word = input.question(`Let's play some scrabble!\n\nEnter a word to score: `);
-   // display scored word.
+// Display Scored Word.
     console.log(oldScrabbleScorer(word));
 
   return word;
 } 
 
-let newPointStructure = {
-  a: 1,
-  b: 3,
-  c: 3,
-  d: 2,
-  e: 1,
-  f: 4,
-  g: 2,
-  h: 4,
-  i: 1,
-  j: 8,
-  k: 5,
-  l: 1,
-  m: 3,
-  n: 1,
-  o: 1,
-  p: 3,
-  q: 10,
-  r: 1,
-  s: 1,
-  t: 1,
-  u: 1,
-  v: 4,
-  w: 4,
-  x: 8,
-  y: 4,
-  z: 10
-};
+// Set newPointStructure = oldPointStructure Using The transfrom Function.
+//let newPointStructure = transform(oldPointStructure);
 
-// object containing simpleScorer.
+// Object Containing simpleScorer.
 let simpleScorer1 = {
   name: "Simple Scorer",
   description: "Each letters is worth 1 point.",
@@ -84,7 +58,7 @@ let simpleScorer1 = {
   }
 }
 
-//function simpleScorer
+// Function simpleScorer
 function simpleScorer(word){
   let score = 0;
   while (score<word.length){
@@ -93,7 +67,7 @@ function simpleScorer(word){
   return score;
  };
 
-// object containing vowelBounusScorer.
+// Object Containing vowelBounusScorer.
 let vowelBonusScorer1 = {
   name: "Bonus Vowels",
   description: "Vowels are 3 pts each, consonant are 1 pt.",
@@ -111,7 +85,7 @@ let vowelBonusScorer1 = {
   }
 };
 
-//function vowelBonusScorer
+// Function vowelBonusScorer
 function vowelBonusScorer(word){
   let score = 0;
   let vowels = ["a","e","i","o","u"];
@@ -125,7 +99,7 @@ function vowelBonusScorer(word){
   return score;
 };
 
-// object containing scrabbleScorer.
+// Object Containing scrabbleScorer.
 let scrabbleScorer1 = {
   name: "Scrabble",
   description: "The traditional scoring algorithm.",
@@ -147,7 +121,7 @@ let scrabbleScorer1 = {
   }
 };
 
-//function scrabbleScorer
+// Function scrabbleScorer
 function scrabbleScorer(word){
   word = word.toUpperCase();
   let letterPoints = "";
@@ -165,14 +139,14 @@ function scrabbleScorer(word){
   return letterPoints;
 };
 
-// array containing scoringAlgorithms.
+// Array Containing scoringAlgorithms.
 const scoringAlgorithms = [simpleScorer1, vowelBonusScorer1, scrabbleScorer1];
-// function to prompt user for rule slection.
+// Function To Prompt User For Rule Slection.
 function scorerPrompt(num) {
   let word = input.question(`Let's play some scrabble!\n\nEnter a word to score: `);
- 
+// Prompt User To Select Scoring Algorithm.
   let selectedScorer = input.question(`Which scoring algorithm would you like to use?\n\n0 - Simple: One point per character\n1 - Vowel Bonus: Vowels are worth 3 points\n2 - Scarbble: Uses scrabble point system\nEnter 0, 1, or 2: `);
-  //chnage these if statments! (nested causeing problem)   
+// If Statement Select === ("0 | 1 | 2")
     if (selectedScorer === "0") {
       console.log(`Score for ${word}: ${scoringAlgorithms[0].scorerFunction(word)}`);
      return simpleScorer(word);
@@ -182,11 +156,29 @@ function scorerPrompt(num) {
   } else if (selectedScorer === "2") {
       console.log(`Score for ${word}: ${scoringAlgorithms[2].scorerFunction(word)}`);
     }
+// Return Function
     return selectedScorer;
   };
+// transform Function
+function transform(Object) {
+  score = 0;
+  word = word.toLowerCase();
 
-function transform() {};
+  for (let i = 0; i < word.length; i++) {
 
+    for (const pointValue in oldPointStructure) {
+
+      if (oldPointStructure[pointValue].includes(word[i])) {
+        
+      }
+
+    }
+  }
+  return score;
+};
+
+
+// runProgram function
 function runProgram() {
  scorerPrompt();
 }
@@ -208,6 +200,17 @@ function runProgram() {
   //console.log("letter a: ", newPointStructure.a);
   //console.log("letter j: ", newPointStructure.j);
   //console.log("letter z: ", newPointStructure["z"]);
+//------------------------------------------------------------------------------------------------
+// Access Elements By Index Test
+// console.log("Letters with score '4':", oldPointStructure[4]);
+  //console.log("Letters with score '4':", oldPointStructure[4]);
+  //console.log("3rd letter within the key '4' array:", oldPointStructure[4][2]);
+// let letters = oldPointStructure[8];
+  //console.log("Letters with score '8':", letters);
+  //console.log("2nd letter within the key '8' array:", letters[1]);
+//------------------------------------------------------------------------------------------------
+// transform Function Test
+  
 //================================================================================================
 
 // Don't write any code below this line //
