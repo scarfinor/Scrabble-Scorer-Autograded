@@ -48,19 +48,20 @@ let newPointStructure = transform(oldPointStructure);
 // Object Containing simpleScorer.
 let simpleScorer1 = {
   name: "Simple Scorer",
-  description: "Each letters is worth 1 point.",
-  scorerFunction: function simpleScorer(word) {
-    let score = 0;
-
-    while (score<word.length){
-      score = score + 1;
-    }
-      return score;
-  }
-};
+  description: "Each letters is worth 1 point."
+}
 
 // Function simpleScorer
 function simpleScorer(word){
+  let score = 0;
+
+  while (score<word.length){
+   score = score + 1;
+  }
+  return score;
+};
+
+ simpleScorer1.scorerFunction = function simpleScorer(word){
   let score = 0;
 
   while (score<word.length){
