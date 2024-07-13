@@ -49,13 +49,13 @@ let newPointStructure = transform(oldPointStructure);
 let simpleScorer1 = {
   name: "Simple Scorer",
   description: "Each letters is worth 1 point.",
-  scorerFunction: function simpleScorer(word){
-   let score = 0;
+  scorerFunction: function simpleScorer(word) {
+    let score = 0;
 
-   while (score<word.length){
-    score = score + 1;
-   }
-   return score;
+    while (score<word.length){
+      score = score + 1;
+    }
+      return score;
   }
 };
 
@@ -208,7 +208,19 @@ function runProgram(){
 // transform Function Test
   //console.log(newPointStructure);
   //console.log(transform(oldPointStructure));
-  console.log(scoringAlgorithms[0])
+//------------------------------------------------------------------------------------------------
+// scoringAlgorithms simpleScorer1
+  //console.log(scoringAlgorithms[0]);
+  //console.log(scoringAlgorithms[0].scorerFunction);
+  //console.log(scoringAlgorithms[0].scorerFunction("JavaScript"));
+// scoringAlgorithims vowelBonusScorer1
+  //console.log(scoringAlgorithms[1]);
+  //console.log(scoringAlgorithms[1].scorerFunction);
+  //console.log(scoringAlgorithms[1].scorerFunction("JavaScript"));
+// scoringAlgorithims scrabbleScorer1
+  //console.log(scoringAlgorithms[2]);
+  //console.log(scoringAlgorithms[2].scorerFunction);
+  //console.log(scoringAlgorithms[2].scorerFunction("JavaScript"));
 //================================================================================================
 
 // Don't write any code below this line //
