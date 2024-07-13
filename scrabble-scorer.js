@@ -109,7 +109,8 @@ let scrabbleScorer1 = {
   description: "The traditional scoring algorithm.",
   scorerFunction: function scrabbleScorer(word, object){
     score = 0;
-  
+    object =  transform(oldPointStructure);
+
     for (let i=0; i<word.length; i++) {
   
       for (property in object) {
@@ -124,6 +125,7 @@ let scrabbleScorer1 = {
 // Function scrabbleScorer Refactrored To Return A Interger Using newPointStructure.
 function scrabbleScorer(word, object){
   score = 0;
+  object = transform(oldPointStructure);
 
   for (let i=0; i<word.length; i++){
 
@@ -151,7 +153,7 @@ function scorerPrompt(num){
       console.log(`Score for ${word}: ${scoringAlgorithms[1].scorerFunction(word)}`);
      return vowelBonusScorer(word);
   } else if (selectedScorer === "2"){
-      console.log(`Score for ${word}: ${scoringAlgorithms[2].scorerFunction(word)}`);
+      console.log(`Score for ${word}: ${scoringAlgorithms[2].scorerFunction(word, oldPointStructure)}`);
     }
 // Return Function
     return selectedScorer;
