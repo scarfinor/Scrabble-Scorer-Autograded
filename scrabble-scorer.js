@@ -42,8 +42,8 @@ function initialPrompt() {
   return word;
 } 
 
-// Set newPointStructure = oldPointStructure Using The transfrom Function.
-//let newPointStructure = transform(oldPointStructure);
+// Set newPointStructure = oldPointStructure By Calling The transfrom Function And Passing oldPointStructure Object.
+let newPointStructure = transform(oldPointStructure);
 
 // Object Containing simpleScorer.
 let simpleScorer1 = {
@@ -74,7 +74,7 @@ let vowelBonusScorer1 = {
   scorerFunction: function vowelBonusScorer2(word){
     let score = 0;
     let vowels = ["a","e","i","o","u"];
-    for(i=0; i<word.length; i++){
+    for(let i=0; i<word.length; i++){
       if (vowels.includes(word[i])){
         score = score + 3;
       } else if (!vowels.includes(word[i])){
@@ -89,7 +89,7 @@ let vowelBonusScorer1 = {
 function vowelBonusScorer(word){
   let score = 0;
   let vowels = ["a","e","i","o","u"];
-  for (i=0; i<word.length; i++){
+  for (let i=0; i<word.length; i++){
     if (vowels.includes(word[i])){
       score = score + 3;
     } else if (!vowels.includes(word[i])){
@@ -160,21 +160,18 @@ function scorerPrompt(num) {
     return selectedScorer;
   };
 // transform Function
-function transform(Object) {
-  score = 0;
-  word = word.toLowerCase();
+function transform(object) {
+// Declare New Object
+ let newObject = {};
 
-  for (let i = 0; i < word.length; i++) {
+  for (property in object) {
+    let array = object[property];
 
-    for (const pointValue in oldPointStructure) {
-
-      if (oldPointStructure[pointValue].includes(word[i])) {
-        
-      }
-
-    }
+  for (let i=0; i<array.length; i++) {
+    newObject[array[i].toLowerCase()] = Number(property);
   }
-  return score;
+}
+ return newObject;
 };
 
 
@@ -210,7 +207,7 @@ function runProgram() {
   //console.log("2nd letter within the key '8' array:", letters[1]);
 //------------------------------------------------------------------------------------------------
 // transform Function Test
-  
+  //console.log(newPointStructure)
 //================================================================================================
 
 // Don't write any code below this line //
