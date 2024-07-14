@@ -45,15 +45,6 @@ function initialPrompt(){
 // Set newPointStructure = oldPointStructure By Calling The transfrom Function And Passing oldPointStructure Object.
 let newPointStructure = transform(oldPointStructure);
 
-// Object Containing simpleScorer.
-let object1 = {
-  name: "Simple Scorer",
-  description: "Each letters is worth 1 point.",
-  scorerFunction: function(word){
-  return simpleScorer(word);
-  }
-};
-
 // Function simpleScorer
 let simpleScorer = function(word){
   let score = 0;
@@ -64,13 +55,11 @@ let simpleScorer = function(word){
   return score;
 };
 
-// Object Containing vowelBounusScorer.
-let object2 = {
-  name: "Bonus Vowels",
-  description: "Vowels are 3 pts each, consonant are 1 pt.",
-  scorerFunction: function(word){
-    return vowelBonusScorer(word);
-  }
+// Object Containing simpleScorer.
+let object1 = {
+  name: "Simple Scorer",
+  description: "Each letters is worth 1 point.",
+  scorerFunction: simpleScorer
 };
 
 // Function vowelBonusScorer
@@ -88,13 +77,11 @@ let vowelBonusScorer = function(word){
   return score;
 };
 
-// Object Containing scrabbleScorer.
-let object3 = {
-  name: "Scrabble",
-  description: "The traditional scoring algorithm.",
-  scorerFunction: function(word, object){
-    return scrabbleScorer(word, object);
-  }
+// Object Containing vowelBounusScorer.
+let object2 = {
+  name: "Bonus Vowels",
+  description: "Vowels are 3 pts each, consonant are 1 pt.",
+  scorerFunction: vowelBonusScorer
 };
 
 // Function scrabbleScorer Refactrored To Return A Interger Using newPointStructure.
@@ -111,6 +98,13 @@ let scrabbleScorer = function(word, object){
     }
   }
   return score;
+};
+
+// Object Containing scrabbleScorer.
+let object3 = {
+  name: "Scrabble",
+  description: "The traditional scoring algorithm.",
+  scorerFunction: scrabbleScorer
 };
 
 // Array Containing scoringAlgorithms.
