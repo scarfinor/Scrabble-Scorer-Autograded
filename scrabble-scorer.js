@@ -46,10 +46,13 @@ function initialPrompt(){
 let newPointStructure = transform(oldPointStructure);
 
 // Object Containing simpleScorer.
-let simpleScorer1 = {
+let object1 = {
   name: "Simple Scorer",
-  description: "Each letters is worth 1 point."
-}
+  description: "Each letters is worth 1 point.",
+  scorerFunction: function(word){
+  return simpleScorer(word);
+  }
+};
 
 // Function simpleScorer
 function simpleScorer(word){
@@ -61,31 +64,12 @@ function simpleScorer(word){
   return score;
 };
 
- simpleScorer1.scorerFunction = function simpleScorer(word){
-  let score = 0;
-
-  while (score<word.length){
-   score = score + 1;
-  }
-  return score;
- };
-
 // Object Containing vowelBounusScorer.
-let vowelBonusScorer1 = {
+let object2 = {
   name: "Bonus Vowels",
   description: "Vowels are 3 pts each, consonant are 1 pt.",
-  scorerFunction: function vowelBonusScorer(word){
-    let score = 0;
-    let vowels = ["a","e","i","o","u"];
-
-    for(let i=0; i<word.length; i++){
-      if (vowels.includes(word[i])){
-        score = score + 3;
-      } else if (!vowels.includes(word[i])){
-        score = score + 1;
-      }
-    }
-    return score;
+  scorerFunction: function(word){
+    return vowelBonusScorer(word);
   }
 };
 
@@ -105,24 +89,14 @@ function vowelBonusScorer(word){
 };
 
 // Object Containing scrabbleScorer.
-let scrabbleScorer1 = {
+let object3 = {
   name: "Scrabble",
   description: "The traditional scoring algorithm.",
-  scorerFunction: function scrabbleScorer(word, object){
-    score = 0;
-    object =  transform(oldPointStructure);
-
-    for (let i=0; i<word.length; i++) {
-  
-      for (property in object) {
-        if (word[i].toLowerCase() === property){
-          score = score + Number(object[property]);
-        }
-      }
-    }
-    return score;
+  scorerFunction: function(word, object){
+    return scrabbleScorer(word, object);
   }
 };
+
 // Function scrabbleScorer Refactrored To Return A Interger Using newPointStructure.
 function scrabbleScorer(word, object){
   score = 0;
@@ -140,7 +114,13 @@ function scrabbleScorer(word, object){
 };
 
 // Array Containing scoringAlgorithms.
-const scoringAlgorithms = [simpleScorer1, vowelBonusScorer1, scrabbleScorer1];
+const scoringAlgorithms = [];
+
+//Push Objects Into scoringAlgorithms Array.
+scoringAlgorithms.push(object1);
+scoringAlgorithms.push(object2);
+scoringAlgorithms.push(object3);
+
 // Function To Prompt User For Rule Slection.
 function scorerPrompt(num){
   let word = input.question(`Let's play some scrabble!\n\nEnter a word to score: `);
@@ -149,12 +129,13 @@ function scorerPrompt(num){
 // If Statement Select === ("0 | 1 | 2")
     if (selectedScorer === "0"){
       console.log(`Score for ${word}: ${scoringAlgorithms[0].scorerFunction(word)}`);
-     return simpleScorer(word);
+     return scoringAlgorithms[0].scorerFunction(word);
   } else if (selectedScorer === "1"){
       console.log(`Score for ${word}: ${scoringAlgorithms[1].scorerFunction(word)}`);
-     return vowelBonusScorer(word);
+     return scoringAlgorithms[1].scorerFunction(word);
   } else if (selectedScorer === "2"){
       console.log(`Score for ${word}: ${scoringAlgorithms[2].scorerFunction(word, oldPointStructure)}`);
+      return scoringAlgorithms[2].scorerFunction(word);
     }
 // Return Function
     return selectedScorer;
@@ -177,7 +158,7 @@ function transform(object){
 
 // runProgram function
 function runProgram(){
- scorerPrompt();
+  scorerPrompt();
 }
 //================================================================================================
 // Simple Scoring Test
@@ -211,17 +192,17 @@ function runProgram(){
   //console.log(transform(oldPointStructure));
 //------------------------------------------------------------------------------------------------
 // scoringAlgorithms simpleScorer1
-  //console.log(scoringAlgorithms[0]);
-  //console.log(scoringAlgorithms[0].scorerFunction);
-  //console.log(scoringAlgorithms[0].scorerFunction("JavaScript"));
+  console.log(scoringAlgorithms[0]);
+  console.log(scoringAlgorithms[0].scorerFunction);
+  console.log(scoringAlgorithms[0].scorerFunction("JavaScript"));
 // scoringAlgorithims vowelBonusScorer1
-  //console.log(scoringAlgorithms[1]);
-  //console.log(scoringAlgorithms[1].scorerFunction);
-  //console.log(scoringAlgorithms[1].scorerFunction("JavaScript"));
+  console.log(scoringAlgorithms[1]);
+  console.log(scoringAlgorithms[1].scorerFunction);
+  console.log(scoringAlgorithms[1].scorerFunction("JavaScript"));
 // scoringAlgorithims scrabbleScorer1
-  //console.log(scoringAlgorithms[2]);
-  //console.log(scoringAlgorithms[2].scorerFunction);
-  //console.log(scoringAlgorithms[2].scorerFunction("JavaScript"));
+  console.log(scoringAlgorithms[2]);
+  console.log(scoringAlgorithms[2].scorerFunction);
+  console.log(scoringAlgorithms[2].scorerFunction("JavaScript"));
 //================================================================================================
 
 // Don't write any code below this line //
