@@ -55,7 +55,7 @@ let object1 = {
 };
 
 // Function simpleScorer
-function simpleScorer(word){
+let simpleScorer = function(word){
   let score = 0;
 
   while (score<word.length){
@@ -74,7 +74,7 @@ let object2 = {
 };
 
 // Function vowelBonusScorer
-function vowelBonusScorer(word){
+let vowelBonusScorer = function(word){
   let score = 0;
   let vowels = ["a","e","i","o","u"];
 
@@ -98,9 +98,9 @@ let object3 = {
 };
 
 // Function scrabbleScorer Refactrored To Return A Interger Using newPointStructure.
-function scrabbleScorer(word, object){
+let scrabbleScorer = function(word, object){
   score = 0;
-  object = transform(oldPointStructure);
+  object = newPointStructure;
 
   for (let i=0; i<word.length; i++){
 
@@ -137,8 +137,8 @@ function scorerPrompt(num){
       console.log(`Score for ${word}: ${scoringAlgorithms[2].scorerFunction(word, oldPointStructure)}`);
       return scoringAlgorithms[2].scorerFunction(word);
     }
-// Return Function
-    return selectedScorer;
+// Return Object
+    return scoringAlgorithms[i];
   };
 // transform Function
 function transform(object){
