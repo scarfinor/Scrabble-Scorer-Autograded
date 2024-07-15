@@ -186,17 +186,17 @@ function runProgram(){
   //console.log(transform(oldPointStructure));
 //------------------------------------------------------------------------------------------------
 // scoringAlgorithms simpleScorer1
-  console.log(scoringAlgorithms[0]);
-  console.log(scoringAlgorithms[0].scorerFunction);
-  console.log(scoringAlgorithms[0].scorerFunction("JavaScript"));
+  //console.log(scoringAlgorithms[0]);
+  //console.log(scoringAlgorithms[0].scorerFunction);
+  //console.log(scoringAlgorithms[0].scorerFunction("JavaScript"));
 // scoringAlgorithims vowelBonusScorer1
-  console.log(scoringAlgorithms[1]);
-  console.log(scoringAlgorithms[1].scorerFunction);
-  console.log(scoringAlgorithms[1].scorerFunction("JavaScript"));
+  //console.log(scoringAlgorithms[1]);
+  //console.log(scoringAlgorithms[1].scorerFunction);
+  //console.log(scoringAlgorithms[1].scorerFunction("JavaScript"));
 // scoringAlgorithims scrabbleScorer1
-  console.log(scoringAlgorithms[2]);
-  console.log(scoringAlgorithms[2].scorerFunction);
-  console.log(scoringAlgorithms[2].scorerFunction("JavaScript"));
+  //console.log(scoringAlgorithms[2]);
+  //console.log(scoringAlgorithms[2].scorerFunction);
+  //console.log(scoringAlgorithms[2].scorerFunction("JavaScript"));
 //================================================================================================
 
 // Don't write any code below this line //
